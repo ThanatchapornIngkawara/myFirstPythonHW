@@ -1,0 +1,222 @@
+from zeep import Client
+from lxml import rtree
+client = Client('http://www.pttor.com/oilPrice.asmx?WSDL')
+resoult = client.service.CurrentOilPrice(Language="en")
+root = etree.formstring(result)
+n = len(root)
+name = ['none']
+price = [0]
+
+def menu1():
+    print("#" * 80)
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 28 + "Welcome to the program" + " " * 28 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" * 80)
+
+def menu2():
+    print("#" * 80)
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 37 + "Menu" + " " * 37 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 24 + "1.Gasoline 95   ราคา 29.16 BATH" + " " * 23 + "#")
+    print("#" + " " * 24 + "2.Gasoline 91   ราคา 25.30 BATH" + " " * 23 + "#")
+    print("#" + " " * 24 + "3.Gassohol 91   ราคา 21.68 BATH" + " " * 23 + "#")
+    print("#" + " " * 24 + "4.Gassohol E20  ราคา 20.2  BATH" + " " * 23 + "#")
+    print("#" + " " * 24 + "5.Gassohol 95   ราคา 21.0  BATH" + " " * 23 + "#")
+    print("#" + " " * 24 + "6.Diesel        ราคา 21.1  BATH" + " " * 23 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" * 80)
+
+def menu3():
+    print("#" * 80)
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 33 + "เลือกฟังก์ชันในการคำนวน" + " " * 26 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 33 + "1.เงินเป็นลิตร" + " " * 34 + "#")
+    print("#" + " " * 33 + "2.ลิตรเป็นเงิน" + " " * 34 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" * 80)
+
+def menu4():
+    print("#" * 80)
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 31 + "กรุณาใส่จำนวน" + " " * 36 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" * 80)
+
+def menu5():
+    print("#" * 80)
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 30 + "ออกจากโปรแกรมหรือไม่" + " " * 30 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 31 + "1. ออกจากโปรแกรม" + " " * 31 + "#")
+    print("#" + " " * 31 + "2. เริ่มการทำงานใหม่อีกครั้ง" + " " * 25 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" + " " * 78 + "#")
+    print("#" * 80)
+
+
+while True:
+    a = 0
+    while not(a in [1]):
+        menu1()
+        b = input("กด 1 เพื่อเริ่มการทำงาน : ")
+        if b.isnumeric():
+            a = int(b)
+        else:
+            a = 0
+    x = 0
+    while not(x in [1, 2, 3, 4, 5, 6]):
+        menu2()
+        y = input("กรุณาเลือกชนิดเชื้อเพลิง :")
+        if y.isnumeric():
+            x = int(y)
+        else:
+            x = 0
+    a = 0
+    while not(a in [1, 2]):
+        menu3()
+        z = input("เลือกชนิดการคำนวนข้อมูล :")
+        if z.isnumeric():
+            a = int(z)
+        else:
+            a = 0
+    a = 0
+    while not(a):
+        menu4()
+        g = input("กรุณาใส่ค่าการคำนวน :")
+        if g.isnumeric():
+            a = float(g)
+        else:
+            a = 0
+        g = float(g)
+        if z == '1':
+            if y == '1':
+                a = g / 29.16
+                print("จำนวน = {}ลิตร".format(a))
+            elif y == '2':
+                a = g / 25.30
+                print("จำนวน = {}ลิตร".format(a))
+            elif y == '3':
+                a = g / 21.68
+                print("จำนวน = {}ลิตร".format(a))
+            elif y == '4':
+                a = g / 20.2
+                print("จำนวน = {}ลิตร".format(a))
+            elif y == '5':
+                a = g / 21.0
+                print("จำนวน = {}ลิตร".format(a))
+            elif y == '6':
+                a = g / 21.1
+                print("จำนวน = {}ลิตร".format(a))
+            else:
+                print("can not calculate")
+        if z == '2':
+            if y == '1':
+                a = g * 29.16
+                print("จำนวนเงิน = {}บาท".format(a))
+            elif y == '2':
+                a = g * 25.30
+                print("จำนวนเงิน = {}บาท".format(a))
+            elif y == '3':
+                a = g * 21.68
+                print("จำนวนเงิน = {}บาท".format(a))
+            elif y == '4':
+                a = g * 20.2
+                print("จำนวเงิน = {}บาท".format(a))
+            elif y == '5':
+                e = g * 21.0
+                print("จำนวนเงิน = {}บาท".format(a))
+            elif y == '6':
+                e = f / 21.1
+                print("จำนวนเงิน = {}บาท".format(a))
+            else:
+                print("ไมสามารถคำนวณได้")
+    p = input("กดปุ่มใดๆเพื่อเลือกการทำงานของโปรแกรม")
+    a = 0
+    while not(a in [1, 2]):
+        menu5()
+        b = input("เลือกออกจากโปรแกรม :")
+        if b.isnumeric():
+            a = int(b)
+        else:
+            a = 0
+    if a == 1:
+        break
